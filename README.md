@@ -8,7 +8,7 @@ From the terminal, run
 ```
 npm install -g expo-cli
 git clone https://github.com/ngoa2/NutritionTracker.git
-cd nutrition-tracker
+cd NutritionTracker
 npm install
 ```
 
