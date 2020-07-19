@@ -52,3 +52,13 @@ Animated: `useNativeDriver` was not specified. This is a required option and mus
 open file: `</node_modules/react-native-deck-swiper/Swiper.js/>`
 
 add `<{useNativeDriver: true}>` to `<Animated.sring>` and `<Animated.event>`'s config prop (the second prop).
+
+
+Installed Libraries:
+
+Requires native-base, follow [this link](https://docs.nativebase.io/docs/GetStarted.html)
+
+npm install native-base --save
+
+react-native link
+

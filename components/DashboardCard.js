@@ -10,7 +10,7 @@ export default class DashboardCard extends React.Component {
         return (
             <View>
                 <Text>{meal}</Text>
-                <Text>{calories} at {mealTime}</Text>
+                <Text>{calories} at{mealTime}</Text>
             </View>
         )
     }
