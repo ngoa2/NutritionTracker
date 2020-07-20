@@ -1,6 +1,6 @@
 import React from 'react';
+import {Card, CardItem, Body, Container} from 'native-base';
 import { StyleSheet, Text, View } from 'react-native';
-
 export default class DashboardCard extends React.Component {
     render() {
         let calories = this.props.calories;
@@ -8,19 +8,39 @@ export default class DashboardCard extends React.Component {
         let meal = this.props.meal;
         
         return (
-            <View>
-                <Text>{meal}</Text>
-                <Text>{calories} at{mealTime}</Text>
-            </View>
+                <Card style = {styles.roundedCard}>
+                    <CardItem style = {styles.cardItem}>
+                        <Text style = {{fontSize: 20}}>{meal}</Text>
+                        <Text style = {{fontSize: 15}}>{mealTime}</Text>
+                    </CardItem>
+                    <CardItem style = {styles.cardItem}>
+                        <Text style = {{color: '#FFA26B', fontSize: 34,}}>{calories}</Text>
+                        <Text>calories</Text>
+                    </CardItem>
+                </Card>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+    roundedCard: {
+        flex: 0,
+        flexDirection: 'row',
+        marginLeft: 37,
+        marginRight: 37,
+        marginTop: 10,
+        padding: 6,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 15,
     },
+
+    cardItem: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+
+    calorieText: {
+        color: '#FFA26B',
+        fontSize: 34,
+    }
 });

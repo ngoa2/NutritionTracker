@@ -62,3 +62,9 @@ npm install native-base --save
 
 react-native link
 
+Requires React Native Progress Circle, follow [this link](https://www.npmjs.com/package/react-native-progress-circle)
+
+npm install --save react-native-progress-circle
+
+
+
