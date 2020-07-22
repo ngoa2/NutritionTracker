@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Dimensions } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
-import DashboardCard from "../components/DashboardCard";
+import AchievementCard from "../components/AchievementCard";
 
 const AchievementScreen = () => {
   return (
@@ -16,9 +16,12 @@ const AchievementScreen = () => {
         <Text style={styles.textTitle}>Chicken</Text>
         <View style={styles.test2}>
         <Body style={styles.roundedBody}>
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
+            <AchievementCard />
+            <AchievementCard />
+            <AchievementCard />
+            <AchievementCard />
+            <AchievementCard />
+            <AchievementCard />
         
       </Body>
       </View>
@@ -78,13 +81,16 @@ const styles = StyleSheet.create({
 
   roundedBody: {
     backgroundColor: "#F9F9F9",
-    paddingTop: 8,
+    paddingTop: 20,
     borderRadius: 36,
+    width: '100%',
   },
 
   test2: {
     position: 'relative',
     top: 10,
+    width: '100%',
+    height: '100%',
     flexDirection: "column",
     backgroundColor: "#2CBA8D",
   },
