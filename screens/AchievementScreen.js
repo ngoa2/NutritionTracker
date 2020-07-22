@@ -1,10 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 import AchievementCard from "../components/AchievementCard";
 
 const AchievementScreen = () => {
+
+  let DATA = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}]
+
   return (
     <Container>
       <View style={styles.background}>
@@ -16,12 +19,10 @@ const AchievementScreen = () => {
         <Text style={styles.textTitle}>Chicken</Text>
         <View style={styles.test2}>
         <Body style={styles.roundedBody}>
-            <AchievementCard />
-            <AchievementCard />
-            <AchievementCard />
-            <AchievementCard />
-            <AchievementCard />
-            <AchievementCard />
+            
+        <AchievementCard />
+        <AchievementCard />
+        <AchievementCard />
         
       </Body>
       </View>
@@ -84,6 +85,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     borderRadius: 36,
     width: '100%',
+    // overflow: "scroll",
   },
 
   test2: {
@@ -94,5 +96,6 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     backgroundColor: "#2CBA8D",
   },
+
 });
 export default AchievementScreen;
