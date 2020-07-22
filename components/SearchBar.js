@@ -8,6 +8,7 @@ const SearchBar = () => {
 
   return (
     <Searchbar
+      style={{borderRadius: 50, height: 35}}
       placeholder="Search"
       onChangeText={onChangeSearch}
       value={searchQuery}
