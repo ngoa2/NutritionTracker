@@ -37,10 +37,10 @@ start the server by
 ```
 expo start --tunnel
 ```
+
 or choose 'tunnel' on browser
 
 To quit the server, press Ctrl + C
-
 
 If see during expo simulation:
 
@@ -52,7 +52,6 @@ Animated: `useNativeDriver` was not specified. This is a required option and mus
 open file: `</node_modules/react-native-deck-swiper/Swiper.js/>`
 
 add `<{useNativeDriver: true}>` to `<Animated.sring>` and `<Animated.event>`'s config prop (the second prop).
-
 
 Installed Libraries:
 
@@ -66,5 +65,8 @@ Requires React Native Progress Circle, follow [this link](https://www.npmjs.com/
 
 npm install --save react-native-progress-circle
 
+Bottom Navigation Reference:
+https://callstack.github.io/react-native-paper/bottom-navigation.html
 
-
+Searchbar Reference:
+https://callstack.github.io/react-native-paper/searchbar.html
