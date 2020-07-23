@@ -1,10 +1,11 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
+import SearchBar from "../components/SearchBar";
 
-const AchievementScreen = () => {
+const SearchScreen = () => {
   return (
     <View style={styles.container}>
-      <Text>Achievement</Text>
+      <SearchBar />
     </View>
   );
 };
@@ -17,4 +18,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-export default AchievementScreen;
+
+export default SearchScreen;
