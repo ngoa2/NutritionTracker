@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
-import AchievementCard from "../components/AchievementCard";
+import SearchCard from "../components/SearchCard";
 
 const SearchScreen = () => {
 
@@ -12,27 +12,20 @@ const SearchScreen = () => {
     <Container>
       <View style={styles.background}>
 
-      <View style={styles.topHalf}>
-        <View style={styles.searchBar}>
-        <SearchBar />
+        <View style={styles.topHalf}>
+          <View style={styles.searchBar}>
+            <SearchBar />
+          </View>
+          <Text style={styles.textTitle}>Chicken</Text>
+            <View style={styles.bottomHalf}>
+              <Body style={styles.roundedBody}>
+                <SearchCard />
+                <SearchCard />
+                <SearchCard />
+              </Body>
+            </View>
         </View>
-        <Text style={styles.textTitle}>Chicken</Text>
-        <View style={styles.test2}>
-        <Body style={styles.roundedBody}>
-            
-        <AchievementCard />
-        <AchievementCard />
-        <AchievementCard />
-        
-      </Body>
       </View>
-      </View>
-
-      
-
-
-
-    </View>
     </Container>
   );
 };
@@ -88,7 +81,7 @@ const styles = StyleSheet.create({
     // overflow: "scroll",
   },
 
-  test2: {
+  bottomHalf: {
     position: 'relative',
     top: 10,
     width: '100%',
