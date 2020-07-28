@@ -7,40 +7,35 @@ import ProgressCircle from "react-native-progress-circle";
 export default class DashboardScreen extends React.Component {
   render() {
     return (
-      <Container>
-        <View style={styles.test}>
-          <Text style={styles.textTitle}>Daily Nutrition</Text>
-          <Container
-            style={{
-              justifyContent: "center",
-              alignSelf: "center",
-              backgroundColor: "transparent",
-            }}
+      <Container style={styles.background}>
+        <Text style={styles.textTitle}>Daily Nutrition Test</Text>
+        <View
+          style={{
+            justifyContent: "center",
+            alignSelf: "center",
+            backgroundColor: "transparent",
+            marginBottom: 20,
+          }}
+        >
+          <ProgressCircle
+            percent={30}
+            radius={100}
+            borderWidth={9}
+            color="#FFFFFF"
+            shadowColor="#FFA26B"
+            bgColor="#2CBA8D"
           >
-            <ProgressCircle
-              percent={30}
-              radius={100}
-              borderWidth={9}
-              color="#FFFFFF"
-              shadowColor="#FFA26B"
-              bgColor="#2CBA8D"
-            >
-              <Text
-                style={{ fontWeight: "bold", fontSize: 45, color: "white" }}
-              >
-                {" "}
-                460{" "}
-              </Text>
-              <Text
-                style={{ fontWeight: "bold", fontSize: 15, color: "white" }}
-              >
-                {" "}
-                left to reach 1840{" "}
-              </Text>
-            </ProgressCircle>
-          </Container>
+            <Text style={{ fontWeight: "bold", fontSize: 45, color: "white" }}>
+              {" "}
+              460{" "}
+            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
+              {" "}
+              left to reach 1840{" "}
+            </Text>
+          </ProgressCircle>
         </View>
-        <View style={styles.test2}>
+        <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
             <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
             <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
@@ -54,20 +49,28 @@ export default class DashboardScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  test: {
-    flex: 1,
+  background: {
+    height: "100%",
+    width: "100%",
     backgroundColor: "#2CBA8D",
   },
-  test2: {
-    flex: 1.5,
+
+  bottomHalf: {
+    flex: 1,
     flexDirection: "column",
-    backgroundColor: "#2CBA8D",
+    height: "100%",
+    width: "100%",
+    position: "relative",
   },
 
   roundedBody: {
     backgroundColor: "#F9F9F9",
     paddingTop: 8,
-    borderRadius: 36,
+    borderTopRightRadius: 36,
+    borderTopLeftRadius: 36,
+    height: "100%",
+    width: "100%",
+    alignItems: "flex-start",
   },
 
   mealButton: {
@@ -86,5 +89,6 @@ const styles = StyleSheet.create({
     color: "white",
     marginTop: 68,
     marginLeft: 37,
+    marginBottom: 20,
   },
 });
