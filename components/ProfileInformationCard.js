@@ -5,15 +5,17 @@ import { Card, CardItem, Container, Body } from "native-base";
 
 import right from '../src/images/icons/right.png';
 
+// PRE: this function...
+// takes in array of length 2: [generalInfoLabel, infoOfIndividual] => props.profileInformation
 export default function ProfileInformationCard(props) {
     return (
         <View style={styles.container}>
             <Card style={styles.roundedCard}>
                 <CardItem style={styles.cardItemLeft}>
-                    <Text style={{ fontSize: 14, fontWeight: 'bold'}}>Username</Text>
+                    <Text style={{ fontSize: 14, fontWeight: 'bold'}}>{props.general}</Text>
                 </CardItem>
                 <CardItem style={styles.cardItemRight}>
-                    <Text style={{ fontSize: 14}}>Jane Doe  </Text>
+                    <Text style={{ fontSize: 14}}>{props.individual}  </Text>
                     <Image source={right} style={{ height:14, width:14 }} />
                 </CardItem>
             </Card>
@@ -36,7 +38,6 @@ const styles = StyleSheet.create({
     },
 
     cardItemLeft: {
-        // flexGrow: 5,
         flex: 1,
         flexDirection: "column",
         alignItems: 'flex-start',

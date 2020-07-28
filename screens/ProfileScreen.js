@@ -1,24 +1,51 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Card, CardItem, Container, Body } from "native-base";
+// import FlatList from 'flatlist-react';
 
 import ProfileTargetCard from '../components/ProfileTargetCard';
 import ProfileInformationCard from '../components/ProfileInformationCard';
 import ProfileLogoutCard from '../components/ProfileLogoutCard';
+// import { Item } from "react-native-paper/lib/typescript/src/components/List/List";
 
 const ProfileScreen = () => {
+
+  // @TODO: fix this array after database is plugged in
+  // [target calories, target weight]
+  let targets = [1850, 145]
+
+  // @TODO: fix these two arrays after database is implemented
+  let profileGeneral = ['Username', 'Gender', 'Age', 'Weight', 'Height', 'Security']
+  let profileIndividual = ['Jane Doe', 'Female', '20', '155 lbs', '5 ft 7 in', '']
+  let [index, setIndex] = useState(0)
+
+  function mainContentGenerator(props) {
+    setIndex(index + 1)
+    return <ProfileInformationCard profileInformation={[profileGeneral[index - 1], profileIndividual[index - 1]]} />
+  }
+
   return (
     <Container>
       <View style={styles.background}>
         <View style={styles.screenContainer}>
           <Text style={styles.textTitle}>My Profile</Text>
           <View style={styles.bottomHalf}>
-            <ProfileTargetCard />
+            <ProfileTargetCard targets={targets} />
             <Body style={styles.roundedBody}>
-              <ProfileInformationCard />
-              <ProfileInformationCard />
-              <ProfileInformationCard />
-              <ProfileInformationCard />
+              {/* <View> */}
+                {profileGeneral.map((profile, index) => (
+                  <ProfileInformationCard general={profile} individual={profileIndividual[index]} />
+                ))}
+
+              {/* </View> */}
+
+              {/* <FlatList
+                list={profileGeneral}
+                renderItem={({item, index}) => (
+                  <ProfileInformationCard general={item} individual={profileIndividual[index]} />
+                )}
+
+              />     */}
               <ProfileLogoutCard />
             </Body>
           </View>
@@ -30,13 +57,6 @@ const ProfileScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  // container: {
-  //   flex: 1,
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  //   alignItems: "center",
-  // },
-
   background: {
     flex: 1,
     backgroundColor: "#2CBA8D",
@@ -50,8 +70,6 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     position: 'absolute',
-    // padding: 25,
-    // marginTop: 80,
   },
   
   textTitle: {
@@ -82,9 +100,7 @@ const styles = StyleSheet.create({
     paddingTop: 100,
     borderRadius: 36,
     width: '100%',
-
   },
-
 
 });
 

@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
     },
 
     cardItem: {
-        // flexGrow: 5,
         backgroundColor: "#2CBA8D",
         flex: 1,
         flexDirection: "column",
