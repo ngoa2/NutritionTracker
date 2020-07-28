@@ -8,7 +8,7 @@ export default class DashboardScreen extends React.Component {
   render() {
     return (
       <Container style={styles.background}>
-        <Text style={styles.textTitle}>Daily Nutrition Test</Text>
+        <Text style={styles.textTitle}>Daily Nutrition</Text>
         <View
           style={{
             justifyContent: "center",
