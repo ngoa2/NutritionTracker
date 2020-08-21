@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Container, Body } from "native-base";
 import AchievementCard from "../components/AchievementCard";
 
@@ -11,10 +11,22 @@ const AchievementScreen = () => {
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
             <Text style={styles.textHeading}>Completed</Text>
-            <View style={{width: "100%", height:"40%", backgroundColor: "black"}}>
+            {/* <View style={styles.scrollbar}> */}
+            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
               <AchievementCard></AchievementCard>
-            </View>
+              <AchievementCard></AchievementCard>
+              <AchievementCard></AchievementCard>
+              <AchievementCard></AchievementCard>
+            </ScrollView>
+
+            {/* </View> */}
             <Text style={styles.textHeading}>Locked</Text>
+            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
+              <AchievementCard style={{color: 'grey'}}></AchievementCard>
+              <AchievementCard></AchievementCard>
+              <AchievementCard></AchievementCard>
+              <AchievementCard></AchievementCard>
+            </ScrollView>
           </Body>
         </View>
       </View>
@@ -23,6 +35,16 @@ const AchievementScreen = () => {
 };
 
 const styles = StyleSheet.create({
+  scrollbar: {
+    marginLeft: 37,
+    marginTop: 10,
+    // width: '100%',
+    height: '40%',
+    // backgroundColor: 'black',
+    flexDirection: 'row',
+    // flex: 1,
+  }, 
+
   background: {
     height: "100%",
     width: "100%",
