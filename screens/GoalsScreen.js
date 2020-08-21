@@ -1,33 +1,25 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Container, Body } from "native-base";
-import AchievementCard from "../components/AchievementCard";
-import LockedCard from "../components/LockedCard";
+import GoalsCard from "../components/GoalsCard";
+import GoalsDetailCard from "../components/GoalsDetailCard";
 
 const AchievementScreen = () => {
   return (
     <Container>
       <View style={styles.background}>
-        <Text style={styles.textTitle}>Achievements</Text>
+        <Text style={styles.textTitle}>Goals</Text>
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
-            <Text style={styles.textHeading}>Completed</Text>
-            {/* <View style={styles.scrollbar}> */}
-            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
-            </ScrollView>
+            <View style={styles.options}>
+              <GoalsCard></GoalsCard>
+              <GoalsCard></GoalsCard>
+              <GoalsCard></GoalsCard>
+            </View>
+            <View style={{ width: '100%', marginTop: 18 }}>
+              <GoalsDetailCard>w</GoalsDetailCard>
+            </View>
 
-            {/* </View> */}
-            <Text style={styles.textHeading}>Locked</Text>
-            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <LockedCard></LockedCard>
-              <LockedCard></LockedCard>
-              <LockedCard></LockedCard>
-              <LockedCard></LockedCard>
-            </ScrollView>
           </Body>
         </View>
       </View>
@@ -36,13 +28,13 @@ const AchievementScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  scrollbar: {
-    marginLeft: 37,
-    marginTop: 10,
-    // width: '100%',
-    height: '40%',
+  options: {
+    // marginLeft: 57,
+    marginTop: 20,
+    width: '100%',
+    // height: '40%',
     // backgroundColor: 'black',
-    flexDirection: 'row',
+    // flexDirection: 'c',
     // flex: 1,
   }, 
 

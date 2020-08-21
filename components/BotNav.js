@@ -6,9 +6,12 @@ import ProfileScreen from "../screens/ProfileScreen";
 import DashboardScreen from "../screens/DashboardScreen";
 import SearchScreen from "../screens/SearchScreen";
 
+// TESTING pURPOSES
+import GoalsScreen from "../screens/GoalsScreen";
+
 const Dashboard = () => <DashboardScreen />;
 const Overview = () => <OverviewScreen />;
-const Achievement = () => <AchievementScreen />;
+const Achievement = () => <GoalsScreen />;
 const Profile = () => <ProfileScreen />;
 const Search = () => <SearchScreen />;
 
