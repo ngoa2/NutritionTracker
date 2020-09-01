@@ -1,7 +1,8 @@
 import React from "react";
-import { BottomNavigation, StyleSheet } from "react-native-paper";
+import { BottomNavigation, StyleSheet, View } from "react-native-paper";
+import { Icon } from "react-native-elements";
 import OverviewScreen from "../screens/OverviewScreen";
-import AchievementScreen from "../screens/AchievementScreen";
+//import AchievementScreen from "../screens/AchievementCard";
 import ProfileScreen from "../screens/ProfileScreen";
 import DashboardScreen from "../screens/DashboardScreen";
 import SearchScreen from "../screens/SearchScreen";
@@ -9,15 +10,15 @@ import SearchScreen from "../screens/SearchScreen";
 // TESTING pURPOSES
 import GoalsScreen from "../screens/GoalsScreen";
 
-const Dashboard = () => <DashboardScreen />;
-const Overview = () => <OverviewScreen />;
-const Achievement = () => <GoalsScreen />;
-const Profile = () => <ProfileScreen />;
-const Search = () => <SearchScreen />;
+let Dashboard = () => <DashboardScreen />;
+let Overview = () => <OverviewScreen />;
+let Achievement = () => <GoalsScreen />;
+let Profile = () => <ProfileScreen />;
+let Search = () => <SearchScreen />;
 
-const BotNav = () => {
-  const [index, setIndex] = React.useState(0);
-  const [routes] = React.useState([
+let BotNav = () => {
+  let [index, setIndex] = React.useState(0);
+  let [routes] = React.useState([
     { key: "dashboard", title: "Dashboard", icon: "queue-music" },
     { key: "overview", title: "Overview", icon: "queue-music" },
     { key: "search", title: "Search", icon: "queue-music" },
@@ -25,7 +26,7 @@ const BotNav = () => {
     { key: "profile", title: "Profile", icon: "queue-music" },
   ]);
 
-  const renderScene = BottomNavigation.SceneMap({
+  let renderScene = BottomNavigation.SceneMap({
     dashboard: Dashboard,
     overview: Overview,
     search: Search,
