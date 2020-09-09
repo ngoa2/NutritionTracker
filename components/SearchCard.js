@@ -1,33 +1,36 @@
 import React, { useState } from "react";
 import { Card, CardItem } from "native-base";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View, Alert } from "react-native";
 
 import up from '../src/images/icons/up.png';
 import down from '../src/images/icons/down.png';
 import plus from '../src/images/icons/plus.png';
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function SearchCard(props) {
-    let [names, setNames] = useState(['Chicken Breast', 'Chicken Nuggets', 'Chicken Wings'])
-    let [quantities, setQuantities] = useState([1, 1, 1])
-    let [units, setUnits] = useState(['Pieces', 'Pieces', 'Pieces'])
+    // function increment(props) {
+    //   props.setQuantity(props.quantities.map((quant, id) => {
+    //     quant.
+    //   }))
+    // }
 
     return (
         <View style={styles.container}> 
           <View style={styles.left}>
             <Card style={styles.roundedCard}>
               <CardItem style={styles.cardItemLeft}>
-                <Text style={{ fontWeight: 'bold', fontSize: 20, width:'100%' }}>{names[0]}</Text>
-                <Text style={{ fontSize: 15 }}>{units[0]}</Text>
+              <TouchableOpacity onPress={() => props.increment(props.id)}><Text style={{ fontWeight: 'bold', fontSize: 20, width:'100%' }}>{props.items && props.items[props.id].name}</Text></TouchableOpacity>
+                <Text style={{ fontSize: 15 }}>{props.items && props.items[props.id].unit}</Text>
               </CardItem>
               <CardItem style={styles.cardItemRight}>
-                <Image source={up} style={{ height:10, width:10 }} />
-                <Text style={{ fontWeight: 'bold', fontSize: 32 }}>{quantities[0]}</Text>
-                <Image source={down} style={{ height:10, width:10 }} />
+                <TouchableOpacity onPress={() => {props.increment(props.id)}}><Image source={up} style={{ height:10, width:10 }} /></TouchableOpacity>
+                <Text style={{ fontWeight: 'bold', fontSize: 32 }}>{props.items && props.items[props.id].quantity}</Text>
+                <TouchableOpacity onPress={()=>{props.decrement(props.id)}}><Image source={down} style={{ height:10, width:10 }} /></TouchableOpacity>
               </CardItem>
             </Card>
           </View>
           <View style={styles.right}>
-            <Image source={plus} style={{ height:22, width:22 }} />
+            <TouchableOpacity onPress={()=>{Alert.alert('clicked')}}><Image source={plus} style={{ height:22, width:22 }} /></TouchableOpacity>
           </View>
         </View>
   )

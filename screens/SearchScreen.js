@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 import SearchCard from "../components/SearchCard";
@@ -7,6 +7,38 @@ import SearchCard from "../components/SearchCard";
 const SearchScreen = () => {
 
   let DATA = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}]
+
+  let [names, setNames] = useState(['Chicken Breast', 'Chicken Nuggets', 'Chicken Wings'])
+  let [quantities, setQuantities] = useState([3, 1, 1])
+  let [units, setUnits] = useState(['Pieces', 'Pieces', 'Pieces'])
+
+  let [items, setItems] = useState({
+    'a': { name: 'Chicken Breast', quantity: 4, unit: 'Pieces' },
+    'b': { name: 'Chicken Nuggets', quantity: 3, unit: 'Pieces' },
+    'c': { name: 'Chicken Wings', quantity: 2, unit: 'Pieces' }
+  })
+
+  let increment = (id) => {
+    items && setItems({
+      ...items,
+      id: {
+        ...items.id,
+        quantity: items.id.quantity + 1
+      }
+    })
+    // Alert.alert(''+ (items && items.id.quantity))
+  }
+
+  let decrement = (id) => {
+    items && setItems({
+      ...items,
+      id: {
+        ...items.id,
+        quantity: items.id.quantity - 1
+      }
+    })
+    // Alert.alert(''+ (items && items.id.quantity))
+  }
 
   return (
     <Container>
@@ -19,9 +51,9 @@ const SearchScreen = () => {
           <Text style={styles.textTitle}>Chicken</Text>
             <View style={styles.bottomHalf}>
               <Body style={styles.roundedBody}>
-                <SearchCard />
-                <SearchCard />
-                <SearchCard />
+                <SearchCard items={items} id={'a'} increment={increment} decrement={decrement} />
+                <SearchCard items={items} id={'b'} increment={increment} decrement={decrement} />
+                <SearchCard items={items} id={'c'} increment={increment} decrement={decrement} />
               </Body>
             </View>
         </View>
