@@ -4,17 +4,23 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  Text,
   Alert,
+  Text,
 } from "react-native";
-import OverviewScreen from "../screens/OverviewScreen";
-// import AchievementScreen from "../screens/AchievementCard";
-import ProfileScreen from "../screens/ProfileScreen";
-import DashboardScreen from "../screens/DashboardScreen";
-import SearchScreen from "../screens/SearchScreen";
+
+import Dashboard from "../screens/DashboardScreen";
 
 export default class BottomNavigator extends Component {
-  // toggleOpen = () => {};
+  constructor() {
+    super();
+    this.state = {
+      test: true,
+    };
+  }
+
+  componentHideAndShow = () => {
+    this.setState((previousState) => ({ test: !previousState.content }));
+  };
 
   render() {
     return (
@@ -23,7 +29,7 @@ export default class BottomNavigator extends Component {
         <View style={styles.addButton}>
           <TouchableOpacity
             onPress={() => {
-              Alert.alert("click");
+              <Dashboard />;
             }}
           >
             <Image source={require("../src/images/icons/add_icon.png")}></Image>
@@ -96,7 +102,7 @@ const styles = StyleSheet.create({
   navStyle: {
     flex: 1,
     flexDirection: "column",
-    backgroundColor: "#E5E5E5",
+    backgroundColor: "gray",
     alignItems: "center",
   },
   category: {
@@ -140,7 +146,7 @@ const styles = StyleSheet.create({
     width: 70,
     height: 85,
     borderRadius: 35,
-    bottom: 35,
+    bottom: 30,
     zIndex: 10,
     backgroundColor: "white",
   },
