@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardItem, Body, Container } from "native-base";
-import { StyleSheet, Text, Image, View } from "react-native";
+import { StyleSheet, Text, Image, View, TouchableOpacity, Alert } from "react-native";
 
 export default function GoalsCard(props) {
     return (
@@ -11,11 +11,13 @@ export default function GoalsCard(props) {
                     <Text style={{marginTop: 15, fontSize: 10}}>Use the silder to select your preferred calorie intake.</Text>
                     <Text style={{marginTop: 15, fontSize: 20, fontWeight: 'bold'}}>2000kCal</Text>
 
+                    <TouchableOpacity activeOpacity={1} onPress={() => {Alert.alert('hi')}} >
                     <Card style={styles.roundedCardGreen}>
                         <CardItem style={styles.cardItemGreen}>
                             <Text style={{ color:'white', fontSize:12, fontWeight:'bold' }}>Add Goal</Text>
                         </CardItem>
                     </Card>
+                    </TouchableOpacity>
                 </CardItem>
             </Card>
         </View>
