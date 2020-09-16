@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Image, TouchableOpacity, Alert } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 
@@ -16,7 +16,7 @@ export default function ProfileInformationCard(props) {
                 </CardItem>
                 <CardItem style={styles.cardItemRight}>
                     <Text style={{ fontSize: 14}}>{props.individual}  </Text>
-                    <Image source={right} style={{ height:14, width:14 }} />
+                    <TouchableOpacity onPress={() => {Alert.alert('hi')}} ><Image source={right} style={{ height:14, width:14 }} /></TouchableOpacity>
                 </CardItem>
             </Card>
         </View> 

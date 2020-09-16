@@ -1,10 +1,10 @@
 import React from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Alert, TouchableOpacity } from "react-native";
 import { Container, Body } from "native-base";
 import GoalsCard from "../components/GoalsCard";
 import GoalsDetailCard from "../components/GoalsDetailCard";
 
-const AchievementScreen = () => {
+const GoalsScreen = () => {
   return (
     <Container>
       <View style={styles.background}>
@@ -17,7 +17,7 @@ const AchievementScreen = () => {
               <GoalsCard></GoalsCard>
             </View>
             <View style={{ width: '100%', marginTop: 18 }}>
-              <GoalsDetailCard>w</GoalsDetailCard>
+              <GoalsDetailCard></GoalsDetailCard>
             </View>
 
           </Body>
@@ -28,6 +28,7 @@ const AchievementScreen = () => {
 };
 
 const styles = StyleSheet.create({
+
   options: {
     // marginLeft: 57,
     marginTop: 20,
@@ -80,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AchievementScreen;
+export default GoalsScreen;

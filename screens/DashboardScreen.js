@@ -1,11 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import DashboardCard from "../components/DashboardCard";
 import { Container, Body } from "native-base";
 import ProgressCircle from "react-native-progress-circle";
 
-export default class DashboardScreen extends React.Component {
-  render() {
+export default function DashboardScreen(props) {
+  let [items, setItems] = useState({
+    'breakfast': { time: '9am', calories: 210 },
+    'lunch': { time: '12pm', calories: 500},
+    'dinner': { time: '7pm', calories: 430}
+  })
+
+  let [totalIntakeGoal, setTotalIntakeGoal] = useState(1840)
+
+  let [totalIntake, setTotalIntake] = useState(0)
+
+  function sumCalorieIntake(props) {
+    let sum = 0
+    items.map((item, index) => {
+      sum += item.calories
+    })
+    setTotalIntake(sum)
+  }
+
     return (
       <Container style={styles.background}>
         <Text style={styles.textTitle}>Daily Nutrition Test</Text>
@@ -27,25 +44,25 @@ export default class DashboardScreen extends React.Component {
           >
             <Text style={{ fontWeight: "bold", fontSize: 45, color: "white" }}>
               {" "}
-              460{" "}
+        {totalIntake}{" "}
             </Text>
             <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
               {" "}
-              left to reach 1840{" "}
+        left to reach {totalIntakeGoal}{" "}
             </Text>
           </ProgressCircle>
         </View>
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
-            <DashboardCard calories="10" meal="dinner" mealTime="10pm" />
+            <DashboardCard calories={items.breakfast.calories} meal='breakfast' mealTime={items.breakfast.time} />
+            <DashboardCard calories={items.lunch.calories} meal='lunch' mealTime={items.lunch.time} />
+            <DashboardCard calories={items.dinner.calories} meal='dinner' mealTime={items.dinner.time} />
             <Text style={styles.mealButton}>+ Add A Meal</Text>
           </Body>
         </View>
       </Container>
     );
-  }
+  
 }
 
 const styles = StyleSheet.create({
