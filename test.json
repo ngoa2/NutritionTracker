@@ -1,0 +1,9 @@
+{
+    "Calories": 1250,
+    "Carbohydrates": 200,
+    "Goals" : 
+    [
+        {"GoalName" : "Eat 1000 Calories", "CurrentNum":560 , "GoalNum":1000},
+        {"GoalName" : "Consume 20g of fiber per day", "CurrentNum":7.5 , "GoalNum":10},
+    ]
+}
