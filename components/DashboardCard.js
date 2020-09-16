@@ -25,7 +25,7 @@ export default class DashboardCard extends React.Component {
 
 const styles = StyleSheet.create({
   roundedCard: {
-    flex: 0,
+    flex: 1,
     flexDirection: "row",
     marginLeft: 37,
     marginRight: 37,
