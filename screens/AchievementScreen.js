@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Container, Body } from "native-base";
-import AchievementCard from "../components/AchievementCard";
+import AchievementSet from "../components/AchievementCard";
 import LockedCard from "../components/LockedCard";
 
 const AchievementScreen = () => {
@@ -12,22 +12,21 @@ const AchievementScreen = () => {
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
             <Text style={styles.textHeading}>Completed</Text>
-            {/* <View style={styles.scrollbar}> */}
-            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
-              <AchievementCard></AchievementCard>
+            <ScrollView horizontal={true}>
+              <AchievementSet />
             </ScrollView>
 
-            {/* </View> */}
-            <Text style={styles.textHeading}>Locked</Text>
-            <ScrollView style={styles.scrollbar} horizontal={true} showsHorizontalScrollIndicator={false}>
+            {/* <Text style={styles.textHeading}>Locked</Text>
+            <ScrollView
+              style={styles.scrollbar}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            >
               <LockedCard></LockedCard>
               <LockedCard></LockedCard>
               <LockedCard></LockedCard>
               <LockedCard></LockedCard>
-            </ScrollView>
+            </ScrollView> */}
           </Body>
         </View>
       </View>
@@ -40,11 +39,11 @@ const styles = StyleSheet.create({
     marginLeft: 37,
     marginTop: 10,
     // width: '100%',
-    height: '40%',
+    height: "40%",
     // backgroundColor: 'black',
-    flexDirection: 'row',
+    flexDirection: "row",
     // flex: 1,
-  }, 
+  },
 
   background: {
     height: "100%",
