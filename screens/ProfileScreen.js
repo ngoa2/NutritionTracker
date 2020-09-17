@@ -61,12 +61,6 @@ const ProfileScreen = () => {
 
                 
               ))}
-              <ProfileInformationCard general={profileGeneral[0]} individual={profileIndividual[0]} />
-              <ProfileInformationCard general={profileGeneral[1]} individual={profileIndividual[1]} />
-              <ProfileInformationCard general={profileGeneral[2]} individual={profileIndividual[2]} />
-              <ProfileInformationCard general={profileGeneral[3]} individual={profileIndividual[3]} />
-              <ProfileInformationCard general={profileGeneral[4]} individual={profileIndividual[4]} />
-              <ProfileInformationCard general={profileGeneral[5]} individual={profileIndividual[5]} />
               
 
               {/* </View> */}
@@ -79,7 +73,7 @@ const ProfileScreen = () => {
 
               />     */}
               <ProfileLogoutCard />
-              </ScrollView>
+          
             </Body>
           </View>
         </View>

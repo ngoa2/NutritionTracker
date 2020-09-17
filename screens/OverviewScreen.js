@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Row, Card, CardItem } from "native-base";
-import * as Progress from 'react-native-progress';
+// import * as Progress from 'react-native-progress';
 import GoalBar from "../components/GoalBar";
 import {VictoryBar, VictoryChart, VictoryTheme} from 'victory-native';
 
