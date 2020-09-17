@@ -1,7 +1,7 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer } from 'react-navigation';
 import DashboardScreen from "../screens/DashboardScreen";
-import MealScreen from "../screens/MealScreen";
+import MealScreen from "../screens/MealScreenAlt";
 import SearchScreen from "../screens/SearchScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
 

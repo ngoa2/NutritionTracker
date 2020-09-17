@@ -52,8 +52,7 @@ const ProfileScreen = () => {
           <View style={styles.bottomHalf}>
             <ProfileTargetCard targets={targets} />
             <Body style={styles.roundedBody}>
-              <ScrollView style={styles.scroll}>
-              {/* {profileGeneral.map((profile, index) => (
+              {profileGeneral.map((profile, index) => (
                 <ProfileInformationCard
                   general={profile}
                   individual={profileIndividual[index]}
@@ -61,7 +60,7 @@ const ProfileScreen = () => {
                 
 
                 
-              ))} */}
+              ))}
               <ProfileInformationCard general={profileGeneral[0]} individual={profileIndividual[0]} />
               <ProfileInformationCard general={profileGeneral[1]} individual={profileIndividual[1]} />
               <ProfileInformationCard general={profileGeneral[2]} individual={profileIndividual[2]} />

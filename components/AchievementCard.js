@@ -1,45 +1,67 @@
 import React from "react";
-import { Card, CardItem, Body, Container } from "native-base";
+import { Card, CardItem, Body, View } from "native-base";
 import { StyleSheet, Text, Image } from "react-native";
-import plus from '../src/images/icons/plus.png';
 
-export default class AchievementCard extends React.Component {
+export class AchievementCard extends React.Component {
   render() {
-
     return (
       <Card style={styles.roundedCard}>
-          <CardItem>
-              <Body>
-                <Image source={plus} style={{ height:50, width:50 }} />
-              </Body>
-          </CardItem>
-          <CardItem>
-              <Body>
-                <Text style={{fontSize: 9, fontWeight: 'bold'}}>Completed the first goal</Text>
-              </Body>
-          </CardItem>
+        <CardItem>
+          <Body>{/* <Image source={require(this.props.img)} /> */}</Body>
+        </CardItem>
+        <CardItem>
+          <Body>
+            <Text style={{ fontSize: 9, fontWeight: "bold" }}>
+              {this.props.msg}
+            </Text>
+          </Body>
+        </CardItem>
       </Card>
     );
   }
 }
 
+export default class AchievementSet extends React.Component {
+  render() {
+    let achievementArray = [
+      {
+        "Completed the First Goal": "../src/images/icons/home_icon.png",
+      },
+      { "50 meals logged": "../src/images/icons/home_icon.png" },
+      { "Weekly protein intake": "../src/images/icons/home_icon.png" },
+      { alpha: "../src/images/icons/home_icon.png" },
+      { beta: "../src/images/icons/home_icon.png" },
+      { gamma: "../src/images/icons/home_icon.png" },
+    ];
+
+    let cardSet = achievementArray.map((achievement) => {
+      let value = Object.values(achievement);
+      let desc = Object.getOwnPropertyNames(achievement);
+      let deck = <AchievementCard msg={value} img={value} />;
+      return deck;
+    });
+    return <View style={styles.scrollbar}>{cardSet}</View>;
+  }
+}
+
 const styles = StyleSheet.create({
+  scrollbar: {
+    marginLeft: 37,
+    marginTop: 10,
+    height: 500,
+    flexDirection: "row",
+  },
   roundedCard: {
-    position: 'relative',
+    position: "relative",
     width: 100,
-    height: '80%',
+    height: "80%",
     flex: 1,
     flexDirection: "column",
-    // alignItems: 'flex-end',
     padding: 4,
     backgroundColor: "#FFFFFF",
     borderRadius: 15,
     marginRight: 10,
-    justifyContent: 'flex-end',
-  },
-
-  card: {
-
+    justifyContent: "flex-end",
   },
 
   cardItem: {
@@ -52,3 +74,5 @@ const styles = StyleSheet.create({
     fontSize: 34,
   },
 });
+
+//input = image src and a description
