@@ -52,7 +52,6 @@ const ProfileScreen = () => {
           <View style={styles.bottomHalf}>
             <ProfileTargetCard targets={targets} />
             <Body style={styles.roundedBody}>
-              {/* <View> */}
               {profileGeneral.map((profile, index) => (
                 <ProfileInformationCard
                   general={profile}
