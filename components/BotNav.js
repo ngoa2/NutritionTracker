@@ -5,11 +5,12 @@ import DashboardScreen from "../screens/DashboardScreen";
 import OverviewScreen from "../screens/OverviewScreen";
 import AchievementScreen from "../screens/AchievementScreen";
 import ProfileScreen from "../screens/ProfileScreen";
+import Navigator from "../routes/ButtonNav";
 
 // TESTING pURPOSES
 // import GoalsScreen from "../screens/GoalsScreen";
 
-let Dashboard = () => <DashboardScreen />;
+let Dashboard = () => <Navigator />;
 let Overview = () => <OverviewScreen />;
 let Achievement = () => <AchievementScreen />;
 let Profile = () => <ProfileScreen />;

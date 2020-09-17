@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { Card, CardItem, Container, Body } from "native-base";
 // import FlatList from 'flatlist-react';
 
@@ -52,13 +52,23 @@ const ProfileScreen = () => {
           <View style={styles.bottomHalf}>
             <ProfileTargetCard targets={targets} />
             <Body style={styles.roundedBody}>
-              {/* <View> */}
-              {profileGeneral.map((profile, index) => (
+              <ScrollView style={styles.scroll}>
+              {/* {profileGeneral.map((profile, index) => (
                 <ProfileInformationCard
                   general={profile}
                   individual={profileIndividual[index]}
                 />
-              ))}
+                
+
+                
+              ))} */}
+              <ProfileInformationCard general={profileGeneral[0]} individual={profileIndividual[0]} />
+              <ProfileInformationCard general={profileGeneral[1]} individual={profileIndividual[1]} />
+              <ProfileInformationCard general={profileGeneral[2]} individual={profileIndividual[2]} />
+              <ProfileInformationCard general={profileGeneral[3]} individual={profileIndividual[3]} />
+              <ProfileInformationCard general={profileGeneral[4]} individual={profileIndividual[4]} />
+              <ProfileInformationCard general={profileGeneral[5]} individual={profileIndividual[5]} />
+              
 
               {/* </View> */}
 
@@ -70,6 +80,7 @@ const ProfileScreen = () => {
 
               />     */}
               <ProfileLogoutCard />
+              </ScrollView>
             </Body>
           </View>
         </View>
@@ -83,6 +94,11 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#2CBA8D",
   },
+
+  scroll: {
+    height: "100%",
+    width: "100%",
+  }, 
 
   screenContainer: {
     flex: 1,

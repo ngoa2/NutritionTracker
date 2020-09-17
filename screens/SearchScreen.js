@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert } from "react-native";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert, Image } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 import SearchCard from "../components/SearchCard";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import addIcon from "../src/images/icons/add_icon.png";
 
-const SearchScreen = () => {
+const SearchScreen = ({ navigation }) => {
 
   let DATA = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}]
 
@@ -40,6 +42,14 @@ const SearchScreen = () => {
     // Alert.alert(''+ (items && items.id.quantity))
   }
 
+  const backHandler = () => {
+    navigation.navigate('Dashboard');
+  }
+
+  const viewMealHandler = () => {
+    navigation.navigate('MealDetail');
+  }
+
   return (
     <Container>
       <View style={styles.background}>
@@ -48,7 +58,10 @@ const SearchScreen = () => {
           <View style={styles.searchBar}>
             <SearchBar />
           </View>
-          <Text style={styles.textTitle}>Chicken</Text>
+          <View style={styles.topbarContainer}>
+            <Text style={styles.textTitle}>Chicken</Text>
+            <TouchableOpacity onPress={viewMealHandler}><Image source={addIcon} style={{ height:44, width:44 }} /></TouchableOpacity>
+          </View>
             <View style={styles.bottomHalf}>
               <Body style={styles.roundedBody}>
                 <SearchCard items={items} id={'a'} increment={increment} decrement={decrement} />
@@ -87,13 +100,14 @@ const styles = StyleSheet.create({
 
   textTitle: {
     width: '100%',
-    padding: 25,
+    // padding: 25,
     fontSize: 34,
     fontStyle: "normal",
     fontWeight: "bold",
     color: "white",
     position: "relative",
     top: 0,
+    left: -37,
     textAlign: 'left',
   },
 
@@ -113,6 +127,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#2CBA8D",
   },
 
+  topbarContainer: {
+    position: "relative",
+    width: '80%',
+    padding: 25,
+    flexDirection: "row", 
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
 });
 
 export default SearchScreen;

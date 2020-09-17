@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     roundedCard: {
         position: 'relative',
         width: '100%',
-        flex: 0,
+        flex: 1,
         flexDirection: "row",
         alignItems: 'center',
         padding: 4,

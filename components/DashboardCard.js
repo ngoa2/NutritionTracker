@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardItem } from "native-base";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { overlay } from "react-native-paper";
 
 export default class DashboardCard extends React.Component {
   render() {
@@ -9,6 +10,7 @@ export default class DashboardCard extends React.Component {
     let meal = this.props.meal;
 
     return (
+      <TouchableOpacity onPress={this.props.onPress} activeOpacity={1} >
       <Card style={styles.roundedCard}>
         <CardItem style={styles.cardItem}>
           <Text style={{ fontSize: 20 }}>{meal}</Text>
@@ -19,6 +21,7 @@ export default class DashboardCard extends React.Component {
           <Text>calories</Text>
         </CardItem>
       </Card>
+      </TouchableOpacity>
     );
   }
 }

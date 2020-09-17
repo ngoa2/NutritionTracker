@@ -26,6 +26,15 @@ export default function DashboardScreen({ navigation }) {
     setTotalIntake(sum)
   }
 
+  const addMealHandler = () => {
+    navigation.navigate('Search');
+  }
+
+  const mealCardHandler = () => {
+    navigation.navigate('Meal');
+  }
+
+
     return (
       <Container style={styles.background}>
         <Text style={styles.textTitle}>Daily Nutrition Test</Text>
@@ -56,16 +65,14 @@ export default function DashboardScreen({ navigation }) {
           </ProgressCircle>
         </View>
         <View style={styles.bottomHalf}>
-        {/* <ScrollView> */}
           <Body style={styles.roundedBody}>
             <ScrollView style={styles.scroll}>
-            <DashboardCard calories={items.breakfast.calories} meal='breakfast' mealTime={items.breakfast.time} />
-            <DashboardCard calories={items.lunch.calories} meal='lunch' mealTime={items.lunch.time} />
-            <DashboardCard calories={items.dinner.calories} meal='dinner' mealTime={items.dinner.time} />
-            <Text style={styles.mealButton} onPress={() => navigation.navigate('SearchScreen')}>+ Add A Meal</Text>
+            <DashboardCard onPress={mealCardHandler} calories={items.breakfast.calories} meal='breakfast' mealTime={items.breakfast.time} />
+            <DashboardCard onPress={mealCardHandler} calories={items.lunch.calories} meal='lunch' mealTime={items.lunch.time} />
+            <DashboardCard onPress={mealCardHandler} calories={items.dinner.calories} meal='dinner' mealTime={items.dinner.time} />
+            <Text style={styles.mealButton} onPress={addMealHandler}>+ Add A Meal</Text>
             </ScrollView>
           </Body>
-          {/* </ScrollView> */}
         </View>
       </Container>
     );
