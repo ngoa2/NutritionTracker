@@ -17,12 +17,18 @@
     "react-devtools": "^4.8.2",
     "react-dom": "~16.11.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-38.0.2.tar.gz",
+    "react-native-chart-kit": "^6.6.1",
     "react-native-elements": "^2.3.0",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-paper": "^4.0.1",
+    "react-native-progress": "^4.1.2",
     "react-native-progress-circle": "^2.1.0",
+    "react-native-svg": "^12.1.0",
+    "react-native-svg-charts": "^5.4.0",
     "react-native-web": "~0.11.7",
-    "react-navigation": "^4.4.0"
+    "react-navigation": "^4.4.0",
+    "victory": "^35.0.9",
+    "victory-native": "^35.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.6",
