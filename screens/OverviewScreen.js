@@ -3,50 +3,67 @@ import { StyleSheet, Text, View } from "react-native";
 import { Row, Card, CardItem } from "native-base";
 import * as Progress from 'react-native-progress';
 import GoalBar from "../components/GoalBar";
-import { BarChart, Grid, XAxis, YAxis} from 'react-native-svg-charts'
+import {VictoryBar, VictoryChart, VictoryTheme} from 'victory-native';
 
 export class OverviewScreen extends React.Component{
   render() {
-    const fill = '#C4C4C4'
-    const data = [1750, 1200, 2000, 2250, 1500, 1700, 2100]
-    const contentInset = { top: 20, bottom: 20 }
-    const svgs = [
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-      { fill: 'black', onPress: () => fill = 'red', },
-    ]
+    const data = [
+      {x: 1, y: 2000},
+      {x: 2, y: 1500},
+      {x: 3, y: 1750},
+      {x: 4, y: 2500},
+      {x: 5, y: 1300},
+      {x: 6, y: 2250},
+      {x: 7, y: 1700},
+
+    ];
 
     return (
       <View style={styles.background}>
         <Text style={styles.textTitle}>Overview</Text>
-        <View style={{width: "80%", alignSelf:"center"}}>
+        <View style={{width: "100%", alignSelf:"center", alignContent:"center"}}>
         <Text style= {{textAlign:"center", marginBottom:10}}>July 7, 2020</Text>
-        <View style={{flexDirection: 'row'}}>
-        <YAxis      style={{marginLeft: 0}}
-                    data={data}
-                    contentInset={contentInset}
-                    svg={{
-                        fill: 'black',
-                        fontSize: 10,
-                    }}
-                    numberOfTicks={5}
-                    formatLabel={(value) => `${value}`}
-                />
-            <BarChart style={{height: 170, flex: 1, marginLeft: 20}} data={data} svg={{ svgs }} spacingInner ={.5} contentInset={contentInset}>
-          </BarChart>
-          </View>
-            <XAxis
-                style={{ marginHorizontal: 0, marginTop: 20, marginBottom: 20,}}
-                data={data}
-                formatLabel={(value, index) => index}
-                contentInset={{ left: 10, right: 10 }}
-                svg={{ fontSize: 10, fill: 'black' }}
-            />
-
+        <View style={{alignContent:"center", alignSelf:"center", justifyContent:"center"}}>
+        <VictoryChart
+        height={200}
+        width={350}
+        
+        padding={{top: 10, bottom: 50, left: 50, right: 25}}
+        theme={VictoryTheme.material}
+        domainPadding={{ x: 20 }}
+        >
+          <VictoryBar
+            style={{
+              data: {
+                fill: "#C4C4C4",
+                width: 15
+              }
+            }}
+            events={[{
+              target: "data",
+              eventHandlers: {
+                onPressIn: () => {
+                  return [
+                    {
+                      target: "data",
+                      mutation: (props) => {
+                        const fill = props.style && props.style.fill;
+                        return fill === "#2CBA8D" ? null : { style: { fill: "#2CBA8D" } };
+                      }
+                    }
+                  ];
+                }
+              }
+            }]}
+            categories={{x:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"]}}
+            alignment="middle"
+            cornerRadius={{top: 8}}
+            data={data}
+            x="x"
+            y="y"
+          />
+        </VictoryChart>
+        </View>
         </View>
 
         <View style={{flexDirection:"row", justifyContent:"space-between", marginBottom: 30}}>
