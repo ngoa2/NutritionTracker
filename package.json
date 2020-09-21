@@ -10,7 +10,7 @@
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/material-bottom-tabs": "^5.2.14",
-    "expo": "~38.0.8",
+    "expo": "^38.0.10",
     "expo-status-bar": "^1.0.2",
     "flatlist-react": "^1.4.2",
     "native-base": "^2.13.13",
@@ -24,7 +24,7 @@
     "react-native-paper": "^4.0.1",
     "react-native-progress": "^4.1.2",
     "react-native-progress-circle": "^2.1.0",
-    "react-native-safe-area-context": "^3.1.7",
+    "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.11.0",
     "react-native-svg": "^12.1.0",
     "react-native-svg-charts": "^5.4.0",
