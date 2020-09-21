@@ -131,10 +131,11 @@
 
 
 import React, { useState } from "react";
-import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert, TouchableOpacity, TextInput } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 import SearchCard from "../components/SearchCard";
+import ProfileLogoutCard from "../components/ProfileLogoutCard";
 
 const MealDetailScreen = ({ navigation }) => {
 
@@ -149,6 +150,8 @@ const MealDetailScreen = ({ navigation }) => {
     'b': { name: 'Chicken Nuggets', quantity: 3, unit: 'Pieces' },
     'c': { name: 'Chicken Wings', quantity: 2, unit: 'Pieces' }
   })
+
+  let [mealName, setMealName] = useState('');
 
   let increment = (id) => {
     items && setItems({
@@ -182,23 +185,28 @@ const MealDetailScreen = ({ navigation }) => {
 
         <View style={styles.topHalf}>
           <TouchableOpacity onPress={pressHandler} ><Text style={styles.backButton}>back</Text></TouchableOpacity>
-          <Text style={styles.textTitle}>Chicken</Text>
+          <Text style={styles.textTitle}>Your meal</Text>
             <View style={styles.bottomHalf}>
               <Body style={styles.roundedBody}>
+                  <TextInput placeholder={'Name your meal'} style={{ width: '86%', height: 40, borderColor: 'gray', borderWidth: 1, marginBottom:20 }} value={mealName} onChangeText={text => setMealName(text)} />
                   <View style={styles.innerTextLabel}>
                     <Text style={{fontWeight: "bold", fontSize: 15}}>Item</Text>
                     <Text style={{fontWeight: "bold", fontSize: 15}}>Calories</Text>
                   </View>
+                  <ScrollView style={styles.scroll}>
                 <SearchCard items={items} id={'a'} increment={increment} decrement={decrement} />
                 <SearchCard items={items} id={'b'} increment={increment} decrement={decrement} />
                 <SearchCard items={items} id={'c'} increment={increment} decrement={decrement} />
                 <SearchCard items={items} id={'c'} increment={increment} decrement={decrement} />
                 <SearchCard items={items} id={'c'} increment={increment} decrement={decrement} />
                 <SearchCard items={items} id={'c'} increment={increment} decrement={decrement} />
+                </ScrollView>
                 <View style={styles.innerTextLabel}>
                     <Text style={{fontWeight: "bold", fontSize: 18}}>Total Calories</Text>
-                    <Text style={{fontWeight: "bold", fontSize: 35}}>394</Text>
+                    <Text style={{fontWeight: "bold", fontSize: 37, color: 'orange'}}>394</Text>
                   </View>
+                  <ProfileLogoutCard />
+                  <View style={{ paddingBottom: 40 }}></View>
               </Body>
             </View>
         </View>
@@ -232,7 +240,9 @@ const styles = StyleSheet.create({
 
   textTitle: {
     width: '100%',
-    padding: 25,
+    paddingTop: 10,
+    paddingLeft: 25,
+    paddingBottom: 10,
     fontSize: 34,
     fontStyle: "normal",
     fontWeight: "bold",
@@ -250,6 +260,8 @@ const styles = StyleSheet.create({
   },
 
   bottomHalf: {
+    marginBottom: -20,
+    flex: 1,
     position: 'relative',
     top: 10,
     width: '100%',
@@ -273,7 +285,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     paddingTop: 10,
+    paddingBottom: 10,
   },
+
+  scroll: {
+    height: "100%",
+    width: "100%",
+
+  }, 
 
 });
 

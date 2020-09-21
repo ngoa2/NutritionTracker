@@ -55,6 +55,7 @@ const SearchScreen = ({ navigation }) => {
       <View style={styles.background}>
 
         <View style={styles.topHalf}>
+          <TouchableOpacity onPress={backHandler}><Text style={styles.backButton}>back</Text></TouchableOpacity>
           <View style={styles.searchBar}>
             <SearchBar />
           </View>
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     paddingHorizontal: 25,
-    marginTop: 80,
+    marginTop: 20,
   },
 
   textTitle: {
@@ -134,6 +135,14 @@ const styles = StyleSheet.create({
     flexDirection: "row", 
     justifyContent: "flex-start",
     alignItems: "center",
+  },
+
+  backButton: {
+    marginTop: 40,
+    width: "100%",
+    color: "white",
+    position: "relative",
+    textAlign: "left",
   },
 });
 
