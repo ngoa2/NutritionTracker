@@ -16,7 +16,7 @@ export default function ProfileInformationCard(props) {
                 </CardItem>
                 <CardItem style={styles.cardItemRight}>
                     <Text style={{ fontSize: 14}}>{props.individual}  </Text>
-                    <TouchableOpacity onPress={() => {Alert.alert('hi')}} ><Image source={right} style={{ height:14, width:14 }} /></TouchableOpacity>
+                    <Image source={right} style={{ height:14, width:14 }} />
                 </CardItem>
             </Card>
         </View> 
@@ -25,6 +25,11 @@ export default function ProfileInformationCard(props) {
 }
 
 const styles = StyleSheet.create({
+
+    container: {
+        flex: 1,
+        alignItems: 'center',
+    },
     roundedCard: {
         position: 'relative',
         width: '100%',

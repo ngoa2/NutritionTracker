@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Alert, Modal, Button, TextInput } from "react-native";
 import { Card, CardItem, Container, Body } from "native-base";
 // import FlatList from 'flatlist-react';
 
 import ProfileTargetCard from "../components/ProfileTargetCard";
 import ProfileInformationCard from "../components/ProfileInformationCard";
 import ProfileLogoutCard from "../components/ProfileLogoutCard";
+import { TouchableOpacity, TouchableHighlight } from "react-native-gesture-handler";
+import ProfileModal from "../components/ProfileModal";
 // import { Item } from "react-native-paper/lib/typescript/src/components/List/List";
 
 const ProfileScreen = () => {
@@ -44,6 +46,16 @@ const ProfileScreen = () => {
     );
   }
 
+  let [modalVisible, setModalVisible] = useState(false);
+  let [displayIndex, setDisplayIndex] = useState(0);
+  let [textModal, setTextModal] = useState('');
+
+  const openModal = (index) => {
+    setModalVisible(true);
+    setDisplayIndex(index);
+    setTextModal(profileIndividual[index]);
+  }
+
   return (
     <Container>
       <View style={styles.background}>
@@ -52,16 +64,27 @@ const ProfileScreen = () => {
           <View style={styles.bottomHalf}>
             <ProfileTargetCard targets={targets} />
             <Body style={styles.roundedBody}>
+
+            <ScrollView style={styles.scroll}>
               {profileGeneral.map((profile, index) => (
-                <ProfileInformationCard
-                  general={profile}
-                  individual={profileIndividual[index]}
-                />
-                
+                <TouchableOpacity activeOpacity={1} onPress={() => openModal(index)}>
+                  <ProfileInformationCard general={profile} individual={profileIndividual[index]}/>
+                </TouchableOpacity>
 
                 
               ))}
-              
+            </ScrollView>
+
+            <Modal visible={modalVisible} transparent={true}>
+              <View style={{ flex: 1, backgroundColor: '#000000aa' }}>
+              <View style={{ backgroundColor: '#ffffff', margin: 50, marginTop: '50%', padding: 40, paddingTop: 25, borderRadius: 30 }}>
+              <Button color="orange" title='cancel' onPress={()=>setModalVisible(false)} />
+              <Text style={{fontSize: 25, fontWeight: 'bold'}}>{profileGeneral[displayIndex]}:</Text>
+              <TextInput style={{ margin: 10, paddingLeft: 5, width: '86%', height: 17, borderBottomWidth: 1, borderBottomColor: 'gray' }} value={textModal} onChangeText={text=>setTextModal(text)} />
+              <Button color="orange" title='confirm' onPress={()=>setModalVisible(false)} />
+              </View>
+              </View>
+            </Modal>
 
               {/* </View> */}
 
@@ -72,8 +95,9 @@ const ProfileScreen = () => {
                 )}
 
               />     */}
-              <ProfileLogoutCard text={'Log out'} />
-          
+              <View style={{ marginBottom: 10 }} ></View>
+              <ProfileLogoutCard text={'Log out'} onPress={() => Alert.alert('logging out')} />
+              <View style={{ marginBottom: 100 }} ></View>
             </Body>
           </View>
         </View>
@@ -132,6 +156,10 @@ const styles = StyleSheet.create({
     borderRadius: 36,
     width: "100%",
   },
+
+  modalButton: {
+    borderRadius: 30,
+  }, 
 });
 
 export default ProfileScreen;
