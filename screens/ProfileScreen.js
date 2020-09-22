@@ -72,7 +72,7 @@ const ProfileScreen = () => {
                 )}
 
               />     */}
-              <ProfileLogoutCard />
+              <ProfileLogoutCard text={'Log out'} />
           
             </Body>
           </View>

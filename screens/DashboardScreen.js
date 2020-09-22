@@ -31,7 +31,7 @@ export default function DashboardScreen({ navigation }) {
   }
 
   const mealCardHandler = () => {
-    navigation.navigate('Meal');
+    navigation.navigate('MealFixed');
   }
 
 
@@ -67,9 +67,9 @@ export default function DashboardScreen({ navigation }) {
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
             <ScrollView style={styles.scroll}>
-            <DashboardCard onPress={mealCardHandler} calories={items.breakfast.calories} meal='breakfast' mealTime={items.breakfast.time} />
-            <DashboardCard onPress={mealCardHandler} calories={items.lunch.calories} meal='lunch' mealTime={items.lunch.time} />
-            <DashboardCard onPress={mealCardHandler} calories={items.dinner.calories} meal='dinner' mealTime={items.dinner.time} />
+            <DashboardCard onPress={mealCardHandler} calories={items.breakfast.calories} meal='Breakfast' mealTime={items.breakfast.time} />
+            <DashboardCard onPress={mealCardHandler} calories={items.lunch.calories} meal='Lunch' mealTime={items.lunch.time} />
+            <DashboardCard onPress={mealCardHandler} calories={items.dinner.calories} meal='Dinner' mealTime={items.dinner.time} />
             <Text style={styles.mealButton} onPress={addMealHandler}>+ Add A Meal</Text>
             </ScrollView>
           </Body>

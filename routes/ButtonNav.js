@@ -4,6 +4,7 @@ import DashboardScreen from "../screens/DashboardScreen";
 import MealScreen from "../screens/MealScreenAlt";
 import SearchScreen from "../screens/SearchScreen";
 import MealDetailScreen from "../screens/MealDetailScreen";
+import MealFixedScreen from "../screens/MealFixedScreen";
 
 const screens = {
     // default dashboard
@@ -31,6 +32,12 @@ const screens = {
             headerShown: false,
         }
     },
+    MealFixed: {
+        screen: MealFixedScreen,
+        navigationOptions: {
+            headerShown: false,
+        }
+    }
 }
 
 const ButtonNav = createStackNavigator(screens);
