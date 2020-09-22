@@ -137,7 +137,7 @@ import { Card, CardItem, Container, Body } from "native-base";
 import MealDetailCard from "../components/MealDetailCard";
 import ProfileLogoutCard from "../components/ProfileLogoutCard";
 
-const MealDetailScreen = ({ navigation }) => {
+const MealFixedScreen = ({ navigation }) => {
 
   let DATA = [{id: 1}, {id: 2}, {id: 3}, {id: 4}, {id: 5}, {id: 6}]
 
@@ -176,10 +176,6 @@ const MealDetailScreen = ({ navigation }) => {
   }
 
   const pressHandler = () => {
-    navigation.navigate('Search');
-  }
-
-  const addMealHandler = () => {
     navigation.navigate('Dashboard');
   }
 
@@ -189,14 +185,9 @@ const MealDetailScreen = ({ navigation }) => {
 
         <View style={styles.topHalf}>
           <TouchableOpacity onPress={pressHandler} ><Text style={styles.backButton}>back</Text></TouchableOpacity>
-          <Text style={styles.textTitle}>Your meal</Text>
+          <Text style={styles.textTitle}>Lunch</Text>
             <View style={styles.bottomHalf}>
               <Body style={styles.roundedBody}>
-                <Card style={styles.roundedCard}>
-                  <CardItem style={styles.cardItem}>
-                  <TextInput placeholder={'Name your meal'} style={{ paddingLeft: 5, width: '86%', height: 17}} value={mealName} onChangeText={text => setMealName(text)} />
-                  </CardItem>
-                </Card> 
                   
                   <View style={styles.innerTextLabel}>
                     <Text style={{fontWeight: "bold", fontSize: 15}}>Item</Text>
@@ -214,7 +205,7 @@ const MealDetailScreen = ({ navigation }) => {
                     <Text style={{fontWeight: "bold", fontSize: 18}}>Total Calories</Text>
                     <Text style={{fontWeight: "bold", fontSize: 37, color: 'orange'}}>394</Text>
                   </View>
-                  <ProfileLogoutCard onPress={addMealHandler} text={'Add Meal'} />
+                  {/* <ProfileLogoutCard onPress={addMealHandler} text={'Add Meal'} /> */}
                   <View style={{ paddingBottom: 40 }}></View>
               </Body>
             </View>
@@ -227,7 +218,7 @@ const MealDetailScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: "orange",
+    backgroundColor: "#2CBA8D",
   },
 
   topHalf: {
@@ -251,7 +242,7 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingTop: 10,
     paddingLeft: 25,
-    paddingBottom: 10,
+    paddingBottom: 25,
     fontSize: 34,
     fontStyle: "normal",
     fontWeight: "bold",
@@ -276,7 +267,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     flexDirection: "column",
-    backgroundColor: "orange",
+    backgroundColor: "#2CBA8D",
   },
 
   backButton: {
@@ -319,5 +310,5 @@ const styles = StyleSheet.create({
 
 });
 
-export default MealDetailScreen;
+export default MealFixedScreen;
 

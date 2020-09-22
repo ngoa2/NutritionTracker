@@ -1,17 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Image } from "react-native";
+import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Image, TouchableOpacity } from "react-native";
 import SearchBar from "../components/SearchBar";
 import { Card, CardItem, Container, Body } from "native-base";
 
 export default function ProfileLogoutCard(props) {
     return (
-        <View style={styles.container}>
+        <TouchableOpacity onPress={props.onPress} activeOpacity={1} >
             <Card style={styles.roundedCard}>
                 <CardItem style={styles.cardItem}>
-                    <Text style={{ fontSize: 14, color: 'white', fontWeight: 'bold'}}>Log Out</Text>
+                    <Text style={{ fontSize: 14, color: 'white', fontWeight: 'bold'}}>{props.text}</Text>
                 </CardItem>
             </Card>
-        </View> 
+        </TouchableOpacity>
     )
 }
 
