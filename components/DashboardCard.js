@@ -13,7 +13,7 @@ export default class DashboardCard extends React.Component {
       <TouchableOpacity onPress={this.props.onPress} activeOpacity={1} >
       <Card style={styles.roundedCard}>
         <CardItem style={styles.cardItemLeft}>
-          <Text style={{ fontWeight: 'bold', fontSize: 25 }}>{meal}</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 23 }}>{meal}</Text>
           <Text style={{ fontSize: 17 }}>{mealTime}</Text>
         </CardItem>
         <CardItem style={styles.cardItemRight}>
@@ -44,7 +44,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: 'center',
-    padding: 8,
+    padding: 4,
+    paddingLeft: 8,
+    paddingRight: 8,
     backgroundColor: "#FFFFFF",
     borderRadius: 15,
     marginBottom: 8,
