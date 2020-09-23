@@ -78,10 +78,14 @@ const ProfileScreen = () => {
             <Modal visible={modalVisible} transparent={true}>
               <View style={{ flex: 1, backgroundColor: '#000000aa' }}>
               <View style={{ backgroundColor: '#ffffff', margin: 50, marginTop: '50%', padding: 40, paddingTop: 25, borderRadius: 30 }}>
-              <Button color="orange" title='cancel' onPress={()=>setModalVisible(false)} />
+              
               <Text style={{fontSize: 25, fontWeight: 'bold'}}>{profileGeneral[displayIndex]}:</Text>
               <TextInput style={{ margin: 10, paddingLeft: 5, width: '86%', height: 17, borderBottomWidth: 1, borderBottomColor: 'gray' }} value={textModal} onChangeText={text=>setTextModal(text)} />
-              <Button color="orange" title='confirm' onPress={()=>setModalVisible(false)} />
+              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                <Button color="orange" title='cancel' onPress={()=>setModalVisible(false)} />
+                {/* <View style={{ margin: 5 }}></View> */}
+                <Button color="orange" title='confirm' onPress={()=>setModalVisible(false)} />
+              </View>
               </View>
               </View>
             </Modal>
