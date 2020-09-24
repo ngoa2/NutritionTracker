@@ -11,36 +11,25 @@ export default class DashboardCard extends React.Component {
 
     return (
       <TouchableOpacity onPress={this.props.onPress} activeOpacity={1} >
-      <Card style={styles.roundedCard}>
-        <CardItem style={styles.cardItemLeft}>
-          <Text style={{ fontWeight: 'bold', fontSize: 23 }}>{meal}</Text>
-          <Text style={{ fontSize: 17 }}>{mealTime}</Text>
-        </CardItem>
-        <CardItem style={styles.cardItemRight}>
-          <Text style={{ color: "#FFA26B", fontSize: 34, fontWeight: 'bold' }}>{calories}</Text>
-          <Text style={{ fontSize: 17 }}>calories</Text>
-        </CardItem>
-      </Card>
+        <Card style={styles.roundedCard}>
+          <CardItem style={styles.cardItemLeft}>
+            <Text style={{ fontWeight: 'bold', fontSize: 23 }}>{meal}</Text>
+            <Text style={{ fontSize: 17 }}>{mealTime}</Text>
+          </CardItem>
+          <CardItem style={styles.cardItemRight}>
+            <Text style={{ color: "#FFA26B", fontSize: 34, fontWeight: 'bold' }}>{calories}</Text>
+            <Text style={{ fontSize: 17 }}>calories</Text>
+          </CardItem>
+        </Card>
       </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  // roundedCard: {
-  //   flex: 1,
-  //   flexDirection: "row",
-  //   marginLeft: 37,
-  //   marginRight: 37,
-  //   marginTop: 10,
-  //   padding: 6,
-  //   backgroundColor: "#FFFFFF",
-  //   borderRadius: 15,
-  // },
 
   roundedCard: {
     position: 'relative',
-    // width: '86%',
     flex: 1,
     flexDirection: "row",
     alignItems: 'center',

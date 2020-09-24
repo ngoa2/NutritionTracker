@@ -13,11 +13,12 @@ export default function GoalsCard(props) {
     }
     return (
         <View style={(clicked)? styles.containerClicked : styles.container}>
-            <TouchableOpacity style={styles.card} activeOpacity={1} onPress={()=>{click()}}><Card style={styles.roundedCard}>
-                <CardItem style={styles.cardItem}>
-                    <Text style={{fontWeight: 'bold', fontSize: 14}}>Daily Fiber Count</Text>
-                </CardItem>
-            </Card>
+            <TouchableOpacity style={styles.card} activeOpacity={1} onPress={()=>{click()}}>
+                <Card style={styles.roundedCard}>
+                    <CardItem style={styles.cardItem}>
+                        <Text style={{fontWeight: 'bold', fontSize: 14}}>Daily Fiber Count</Text>
+                    </CardItem>
+                </Card>
             </TouchableOpacity>
         </View>
     )
@@ -25,8 +26,6 @@ export default function GoalsCard(props) {
 
 const styles = StyleSheet.create({
     container: {
-        // flexDirection: "row",
-        // justifyContent: 'space-evenly',
         marginLeft: 48,
         marginRight: 48,
     },

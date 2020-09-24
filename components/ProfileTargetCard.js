@@ -10,7 +10,6 @@ export default function ProfileTargetCard(props) {
     return (
         
         <View style={styles.container}>
-            
             <Card style={styles.roundedCard}>
                 <CardItem style={styles.cardItem}>
                     <Text style={{ color: "#FFA26B", fontWeight: 'bold', fontSize: 33, paddingBottom: 4,}}>{props.targets[0]}</Text>
@@ -56,7 +55,6 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: "column",
         alignItems: 'center',
-        // justifyContent: 'space-between',
       },
 
 })

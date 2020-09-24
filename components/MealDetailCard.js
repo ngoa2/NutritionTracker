@@ -8,25 +8,20 @@ import plus from '../src/images/icons/plus.png';
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function MealDetailCard(props) {
-    // function increment(props) {
-    //   props.setQuantity(props.quantities.map((quant, id) => {
-    //     quant.
-    //   }))
-    // }
 
     return (
         <View style={styles.container}> 
-          {/* <View style={styles.left}> */}
             <Card style={styles.roundedCard}>
               <CardItem style={styles.cardItemLeft}>
-                <TouchableOpacity onPress={() => props.increment(props.id)}><Text style={{ fontWeight: 'bold', fontSize: 20, width:'100%' }}>{props.items && props.items[props.id].name}</Text></TouchableOpacity>
+                <TouchableOpacity onPress={() => props.increment(props.id)}>
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, width:'100%' }}>{props.items && props.items[props.id].name}</Text>
+                </TouchableOpacity>
                 <Text style={{ fontSize: 15 }}>{props.items && props.items[props.id].unit}</Text>
               </CardItem>
               <CardItem style={styles.cardItemRight}>
                 <Text style={{ fontWeight: 'bold', fontSize: 32 }}>450</Text>
               </CardItem>
             </Card>
-          {/* </View> */}
         </View>
   )
 }
@@ -55,20 +50,4 @@ const styles = StyleSheet.create({
         flexDirection: "column",
         alignItems: 'flex-start',
       },
-
-    cardItemRight: {
-        // flex: 1,
-        // flexDirection: 'column',
-    },
-
-    // left: {
-    //     flex: 1,
-    //     flexGrow: 1.7,
-    //     position: 'relative',
-    // },
-
-    // right: {
-    //     flex: 1,
-    //     marginLeft: 21,
-    // },
 });    
