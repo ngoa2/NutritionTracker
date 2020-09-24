@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardItem, Body, View } from "native-base";
 import { StyleSheet, Text, Image } from "react-native";
+import house from "../src/images/icons/home_icon.png";
 
 export class AchievementCard extends React.Component {
   render() {
@@ -23,22 +24,23 @@ export class AchievementCard extends React.Component {
 
 export default class AchievementSet extends React.Component {
   render() {
-    let achievementArray = [
-      {
-        "Completed the First Goal": "../src/images/icons/home_icon.png",
-      },
-      { "50 meals logged": "../src/images/icons/home_icon.png" },
-      { "Weekly protein intake": "../src/images/icons/home_icon.png" },
-      { alpha: "../src/images/icons/home_icon.png" },
-      { beta: "../src/images/icons/home_icon.png" },
-      { gamma: "../src/images/icons/home_icon.png" },
-    ];
+    let achievementArray = {
 
-    let cardSet = achievementArray.map((achievement) => {
-      let value = Object.values(achievement);
-      let desc = Object.getOwnPropertyNames(achievement);
-      let deck = <AchievementCard msg={value} img={value} />;
+        "Completed the First Goal": house,
+      
+       "50 meals logged": "../src/images/icons/home_icon.png" ,
+      "Weekly protein intake": "../src/images/icons/home_icon.png" ,
+      alpha: "../src/images/icons/home_icon.png" ,
+      beta: "../src/images/icons/home_icon.png" ,
+      gamma: "../src/images/icons/home_icon.png" ,
+    };
+
+    let cardSet = Object.keys(achievementArray).map((achievement, i) => {
+      // let value = Object.values(achievement);
+      // let desc = Object.getOwnPropertyNames(achievement);
+      let deck = <AchievementCard msg={achievement} img={achievementArray[achievement]} />;
       return deck;
+      // console.log(house);
     });
     return <View style={styles.scrollbar}>{cardSet}</View>;
   }
