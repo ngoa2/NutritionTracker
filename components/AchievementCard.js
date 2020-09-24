@@ -3,45 +3,35 @@ import { Card, CardItem, Body, View } from "native-base";
 import { StyleSheet, Text, Image } from "react-native";
 import house from "../src/images/icons/home_icon.png";
 
-export class AchievementCard extends React.Component {
-  render() {
-    return (
-      <Card style={styles.roundedCard}>
-        <CardItem>
-          <Body>{/* <Image source={require(this.props.img)} /> */}</Body>
-        </CardItem>
-        <CardItem>
-          <Body>
-            <Text style={{ fontSize: 9, fontWeight: "bold" }}>
-              {this.props.msg}
-            </Text>
-          </Body>
-        </CardItem>
-      </Card>
-    );
-  }
-}
-
 export default class AchievementSet extends React.Component {
   render() {
-    let achievementArray = {
+    let achievementArray = [
+      ["Completed the Goal", require("../src/images/icons/home_icon.png")],
+      ["50 meals logged", require("../src/images/icons/down.png")],
+      [
+        "Weekly protein intake",
+        require("../src/images/icons/overview_icon.png"),
+      ],
+      ["test 123", require("../src/images/icons/profile_icon.png")],
+      ["hello world", require("../src/images/icons/right.png")],
+      ["beef burger", require("../src/images/icons/up.png")],
+    ];
 
-        "Completed the First Goal": house,
-      
-       "50 meals logged": "../src/images/icons/home_icon.png" ,
-      "Weekly protein intake": "../src/images/icons/home_icon.png" ,
-      alpha: "../src/images/icons/home_icon.png" ,
-      beta: "../src/images/icons/home_icon.png" ,
-      gamma: "../src/images/icons/home_icon.png" ,
-    };
-
-    let cardSet = Object.keys(achievementArray).map((achievement, i) => {
-      // let value = Object.values(achievement);
-      // let desc = Object.getOwnPropertyNames(achievement);
-      let deck = <AchievementCard msg={achievement} img={achievementArray[achievement]} />;
-      return deck;
-      // console.log(house);
+    let cardSet = achievementArray.map((card) => {
+      return (
+        <Card style={styles.roundedCard}>
+          <CardItem>
+            <Image source={card[1]} />
+          </CardItem>
+          <CardItem>
+            <Body>
+              <Text style={{ fontSize: 9, fontWeight: "bold" }}>{card[0]}</Text>
+            </Body>
+          </CardItem>
+        </Card>
+      );
     });
+
     return <View style={styles.scrollbar}>{cardSet}</View>;
   }
 }
@@ -55,12 +45,12 @@ const styles = StyleSheet.create({
   },
   roundedCard: {
     position: "relative",
-    width: 100,
-    height: "80%",
+    width: 96,
+    height: 147,
     flex: 1,
     flexDirection: "column",
     padding: 4,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#FFFF",
     borderRadius: 15,
     marginRight: 10,
     justifyContent: "flex-end",
@@ -70,11 +60,4 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
   },
-
-  calorieText: {
-    color: "#FFA26B",
-    fontSize: 34,
-  },
 });
-
-//input = image src and a description
