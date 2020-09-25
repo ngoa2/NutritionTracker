@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardItem, Body, View } from "native-base";
 import { StyleSheet, Text, Image } from "react-native";
+import house from "../src/images/icons/home_icon.png";
 
 export default class AchievementSet extends React.Component {
   render() {

@@ -1,135 +1,3 @@
-// import React, { useState } from "react";
-// import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from "react-native";
-// import { Card, CardItem, Container, Body } from "native-base";
-// // import FlatList from 'flatlist-react';
-// import right from "../src/images/icons/right.png";
-// import ProfileTargetCard from "../components/ProfileTargetCard";
-// import ProfileInformationCard from "../components/ProfileInformationCard";
-// import ProfileLogoutCard from "../components/ProfileLogoutCard";
-// // import { Item } from "react-native-paper/lib/typescript/src/components/List/List";
-
-// const MealScreen = ({ navigation }) => {
-//   // @TODO: fix this array after database is plugged in
-//   // [target calories, target weight]
-//   let targets = [1850, 145];
-
-//   // @TODO: fix these two arrays after database is implemented
-//   let profileGeneral = [
-//     "Username",
-//     "Gender",
-//     "Age",
-//     "Weight",
-//     "Height",
-//     "Security",
-//   ];
-//   let profileIndividual = [
-//     "Jane Doe",
-//     "Female",
-//     "20",
-//     "155 lbs",
-//     "5 ft 7 in",
-//     "",
-//   ];
-//   let [index, setIndex] = useState(0);
-
-//   function mainContentGenerator(props) {
-//     setIndex(index + 1);
-//     return (
-//       <ProfileInformationCard
-//         profileInformation={[
-//           profileGeneral[index - 1],
-//           profileIndividual[index - 1],
-//         ]}
-//       />
-//     );
-//   }
-
-//   const pressHandler = () => {
-//     navigation.navigate('Dashboard');
-//   }
-
-//   return (
-//     <Container>
-//       <View style={styles.background}>
-//         <View style={styles.screenContainer}>
-//         <TouchableOpacity onPress={pressHandler} ><Text style={styles.backButton}>back</Text></TouchableOpacity>
-//           <Text style={styles.textTitle}>Meal</Text>
-//           <View style={styles.bottomHalf}>
-
-//             <Body style={styles.roundedBody}>
-
-//             </Body>
-//           </View>
-//         </View>
-//       </View>
-//     </Container>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   background: {
-//     flex: 1,
-//     backgroundColor: "#2CBA8D",
-//   },
-
-//   scroll: {
-//     height: "100%",
-//     width: "100%",
-//   }, 
-
-//   screenContainer: {
-//     flex: 0,
-//     width: "100%",
-//     height: "100%",
-//     flexDirection: "column",
-//     justifyContent: "flex-start",
-//     alignItems: "center",
-//     position: "absolute",
-//   },
-
-//   textTitle: {
-//     marginTop: 25,
-//     marginLeft: 50,
-//     width: "100%",
-//     fontSize: 34,
-//     fontStyle: "normal",
-//     fontWeight: "bold",
-//     color: "white",
-//     position: "relative",
-//     textAlign: "left",
-//   },
-
-//   bottomHalf: {
-//     position: "relative",
-//     top: 40,
-//     width: "100%",
-//     height: "100%",
-//     flexDirection: "column",
-//     backgroundColor: "#2CBA8D",
-//   },
-
-//   roundedBody: {
-//     position: "relative",
-
-//     backgroundColor: "#F9F9F9",
-//     paddingTop: 100,
-//     borderRadius: 36,
-//     width: "100%",
-//   },
-
-//   backButton: {
-//     marginTop: 40,
-//     width: "100%",
-//     color: "white",
-//     position: "relative",
-//     textAlign: "left",
-//   },
-// });
-
-// export default MealScreen;
-
-
-
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Dimensions, FlatList, ScrollView, Alert, TouchableOpacity, TextInput } from "react-native";
 import SearchBar from "../components/SearchBar";
@@ -161,7 +29,6 @@ const MealDetailScreen = ({ navigation }) => {
         quantity: items.id.quantity + 1
       }
     })
-    // Alert.alert(''+ (items && items.id.quantity))
   }
 
   let decrement = (id) => {
@@ -172,7 +39,6 @@ const MealDetailScreen = ({ navigation }) => {
         quantity: items.id.quantity - 1
       }
     })
-    // Alert.alert(''+ (items && items.id.quantity))
   }
 
   const pressHandler = () => {
@@ -186,38 +52,44 @@ const MealDetailScreen = ({ navigation }) => {
   return (
     <Container>
       <View style={styles.background}>
-
         <View style={styles.topHalf}>
+
+          {/* back to front page/ dashboard */}
           <TouchableOpacity onPress={pressHandler} ><Text style={styles.backButton}>back</Text></TouchableOpacity>
           <Text style={styles.textTitle}>Your meal</Text>
-            <View style={styles.bottomHalf}>
-              <Body style={styles.roundedBody}>
-                <Card style={styles.roundedCard}>
-                  <CardItem style={styles.cardItem}>
-                  <TextInput placeholder={'Name your meal'} style={{ paddingLeft: 5, width: '86%', height: 17}} value={mealName} onChangeText={text => setMealName(text)} />
-                  </CardItem>
-                </Card> 
+          <View style={styles.bottomHalf}>
+            <Body style={styles.roundedBody}>
+
+                  <Card style={styles.roundedCard}>
+                    <CardItem style={styles.cardItem}>
+                      <TextInput placeholder={'Name your meal'} style={{ paddingLeft: 5, width: '86%', height: 17}} value={mealName} onChangeText={text => setMealName(text)} />
+                    </CardItem>
+                  </Card> 
                   
                   <View style={styles.innerTextLabel}>
                     <Text style={{fontWeight: "bold", fontSize: 15}}>Item</Text>
                     <Text style={{fontWeight: "bold", fontSize: 15}}>Calories</Text>
                   </View>
+
                   <ScrollView style={styles.scroll}>
-                <MealDetailCard items={items} id={'a'} increment={increment} decrement={decrement} />
-                <MealDetailCard items={items} id={'b'} increment={increment} decrement={decrement} />
-                <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
-                <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
-                <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
-                <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
-                </ScrollView>
-                <View style={styles.innerTextLabel}>
+                    <MealDetailCard items={items} id={'a'} increment={increment} decrement={decrement} />
+                    <MealDetailCard items={items} id={'b'} increment={increment} decrement={decrement} />
+                    <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
+                    <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
+                    <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
+                    <MealDetailCard items={items} id={'c'} increment={increment} decrement={decrement} />
+                  </ScrollView>
+
+                  <View style={styles.innerTextLabel}>
                     <Text style={{fontWeight: "bold", fontSize: 18}}>Total Calories</Text>
                     <Text style={{fontWeight: "bold", fontSize: 37, color: 'orange'}}>394</Text>
                   </View>
+
                   <ProfileLogoutCard onPress={addMealHandler} text={'Add Meal'} />
                   <View style={{ paddingBottom: 40 }}></View>
-              </Body>
-            </View>
+
+            </Body>
+          </View>
         </View>
       </View>
     </Container>
@@ -303,19 +175,9 @@ const styles = StyleSheet.create({
   }, 
 
   roundedCard: {
-    // position: 'relative',
-    // flex: 0,
-    // flexDirection: "row",
-    // alignItems: 'center',
     padding: 4,
     borderRadius: 16,
-    // width: '93%',
   },
-
-  cardItem: {
-    // alignItems: 'center',
-  },
-
 
 });
 

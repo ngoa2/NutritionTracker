@@ -18,6 +18,7 @@ export default function GoalsCard(props) {
                         </CardItem>
                     </Card>
                     </TouchableOpacity>
+
                 </CardItem>
             </Card>
         </View>
@@ -26,8 +27,6 @@ export default function GoalsCard(props) {
 
 const styles = StyleSheet.create({
     container: {
-        // flexDirection: "row",
-        // justifyContent: 'space-evenly',
         marginLeft: 23,
         marginRight: 23,
     },

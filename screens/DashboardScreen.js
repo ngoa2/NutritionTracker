@@ -54,23 +54,17 @@ export default function DashboardScreen({ navigation }) {
             shadowColor="#FFA26B"
             bgColor="#2CBA8D"
           >
-            <Text style={{ fontWeight: "bold", fontSize: 45, color: "white" }}>
-              {" "}
-        {totalIntake}{" "}
-            </Text>
-            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>
-              {" "}
-        left to reach {totalIntakeGoal}{" "}
-            </Text>
+            <Text style={{ fontWeight: "bold", fontSize: 45, color: "white" }}>{" "}{totalIntake}{" "}</Text>
+            <Text style={{ fontWeight: "bold", fontSize: 15, color: "white" }}>{" "}left to reach {totalIntakeGoal}{" "}</Text>
           </ProgressCircle>
         </View>
         <View style={styles.bottomHalf}>
           <Body style={styles.roundedBody}>
             <ScrollView style={styles.scroll}>
-            <DashboardCard onPress={mealCardHandler} calories={items.breakfast.calories} meal='Breakfast' mealTime={items.breakfast.time} />
-            <DashboardCard onPress={mealCardHandler} calories={items.lunch.calories} meal='Lunch' mealTime={items.lunch.time} />
-            <DashboardCard onPress={mealCardHandler} calories={items.dinner.calories} meal='Dinner' mealTime={items.dinner.time} />
-            <Text style={styles.mealButton} onPress={addMealHandler}>+ Add A Meal</Text>
+              <DashboardCard onPress={mealCardHandler} calories={items.breakfast.calories} meal='Breakfast' mealTime={items.breakfast.time} />
+              <DashboardCard onPress={mealCardHandler} calories={items.lunch.calories} meal='Lunch' mealTime={items.lunch.time} />
+              <DashboardCard onPress={mealCardHandler} calories={items.dinner.calories} meal='Dinner' mealTime={items.dinner.time} />
+              <Text style={styles.mealButton} onPress={addMealHandler}>+ Add A Meal</Text>
             </ScrollView>
           </Body>
         </View>

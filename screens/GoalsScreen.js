@@ -19,7 +19,6 @@ const GoalsScreen = () => {
             <View style={{ width: '100%', marginTop: 18 }}>
               <GoalsDetailCard></GoalsDetailCard>
             </View>
-
           </Body>
         </View>
       </View>
@@ -30,13 +29,8 @@ const GoalsScreen = () => {
 const styles = StyleSheet.create({
 
   options: {
-    // marginLeft: 57,
     marginTop: 20,
     width: '100%',
-    // height: '40%',
-    // backgroundColor: 'black',
-    // flexDirection: 'c',
-    // flex: 1,
   }, 
 
   background: {

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, View, ScrollView, Alert, Modal, Button, TextInput } from "react-native";
 import { Card, CardItem, Container, Body } from "native-base";
-// import FlatList from 'flatlist-react';
 
 import ProfileTargetCard from "../components/ProfileTargetCard";
 import ProfileInformationCard from "../components/ProfileInformationCard";
@@ -12,7 +11,6 @@ import ProfileModal from "../components/ProfileModal";
 
 const ProfileScreen = () => {
   // @TODO: fix this array after database is plugged in
-  // [target calories, target weight]
   let targets = [1850, 145];
 
   // @TODO: fix these two arrays after database is implemented
@@ -32,19 +30,6 @@ const ProfileScreen = () => {
     "5 ft 7 in",
     "",
   ];
-  let [index, setIndex] = useState(0);
-
-  function mainContentGenerator(props) {
-    setIndex(index + 1);
-    return (
-      <ProfileInformationCard
-        profileInformation={[
-          profileGeneral[index - 1],
-          profileIndividual[index - 1],
-        ]}
-      />
-    );
-  }
 
   let [modalVisible, setModalVisible] = useState(false);
   let [displayIndex, setDisplayIndex] = useState(0);
@@ -62,7 +47,9 @@ const ProfileScreen = () => {
         <View style={styles.screenContainer}>
           <Text style={styles.textTitle}>My Profile</Text>
           <View style={styles.bottomHalf}>
+
             <ProfileTargetCard targets={targets} />
+
             <Body style={styles.roundedBody}>
 
             <ScrollView style={styles.scroll}>
@@ -70,38 +57,26 @@ const ProfileScreen = () => {
                 <TouchableOpacity activeOpacity={1} onPress={() => openModal(index)}>
                   <ProfileInformationCard general={profile} individual={profileIndividual[index]}/>
                 </TouchableOpacity>
-
-                
               ))}
             </ScrollView>
 
             <Modal visible={modalVisible} transparent={true}>
               <View style={{ flex: 1, backgroundColor: '#000000aa' }}>
-              <View style={{ backgroundColor: '#ffffff', margin: 50, marginTop: '50%', padding: 40, paddingTop: 25, borderRadius: 30 }}>
-              
-              <Text style={{fontSize: 25, fontWeight: 'bold'}}>{profileGeneral[displayIndex]}:</Text>
-              <TextInput style={{ margin: 10, paddingLeft: 5, width: '86%', height: 17, borderBottomWidth: 1, borderBottomColor: 'gray' }} value={textModal} onChangeText={text=>setTextModal(text)} />
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                <Button color="orange" title='cancel' onPress={()=>setModalVisible(false)} />
-                {/* <View style={{ margin: 5 }}></View> */}
-                <Button color="orange" title='confirm' onPress={()=>setModalVisible(false)} />
-              </View>
-              </View>
+                <View style={{ backgroundColor: '#ffffff', margin: 50, marginTop: '50%', padding: 40, paddingTop: 25, borderRadius: 30 }}>
+                  <Text style={{fontSize: 25, fontWeight: 'bold'}}>{profileGeneral[displayIndex]}:</Text>
+                  <TextInput style={{ margin: 10, paddingLeft: 5, width: '86%', height: 17, borderBottomWidth: 1, borderBottomColor: 'gray' }} value={textModal} onChangeText={text=>setTextModal(text)} />
+                  <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                    <Button color="orange" title='cancel' onPress={()=>setModalVisible(false)} />
+                    <Button color="orange" title='confirm' onPress={()=>setModalVisible(false)} />
+                  </View>
+                </View>
               </View>
             </Modal>
 
-              {/* </View> */}
-
-              {/* <FlatList
-                list={profileGeneral}
-                renderItem={({item, index}) => (
-                  <ProfileInformationCard general={item} individual={profileIndividual[index]} />
-                )}
-
-              />     */}
-              <View style={{ marginBottom: 10 }} ></View>
+            <View style={{ marginBottom: 10 }} ></View>
               <ProfileLogoutCard text={'Log out'} onPress={() => Alert.alert('logging out')} />
-              <View style={{ marginBottom: 100 }} ></View>
+            <View style={{ marginBottom: 100 }} ></View>
+
             </Body>
           </View>
         </View>
