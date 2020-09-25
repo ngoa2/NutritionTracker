@@ -19,12 +19,22 @@ export default class AchievementSet extends React.Component {
     let cardSet = achievementArray.map((card) => {
       return (
         <Card style={styles.roundedCard}>
-          <CardItem>
-            <Image source={card[1]} />
+          <CardItem style={{ alignSelf: "center" }}>
+            <Image
+              style={{ tintColor: "#FFA26B", width: 43, height: 43 }}
+              source={card[1]}
+            />
           </CardItem>
-          <CardItem>
-            <Body>
-              <Text style={{ fontSize: 9, fontWeight: "bold" }}>{card[0]}</Text>
+          <CardItem style={{ paddingLeft: 0, paddingRight: 0 }}>
+            <Body style={{ alignItems: "center" }}>
+              <Text
+                style={{
+                  fontSize: 10,
+                  textAlign: "center",
+                }}
+              >
+                {card[0]}
+              </Text>
             </Body>
           </CardItem>
         </Card>

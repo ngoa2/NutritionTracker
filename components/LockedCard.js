@@ -5,10 +5,10 @@ import { StyleSheet, Text, Image } from "react-native";
 export default class LockedCard extends React.Component {
   render() {
     let achievementArray = [
-      ["Completed the Goal", require("../src/images/icons/home_icon.png")],
-      ["50 meals logged", require("../src/images/icons/down.png")],
+      ["100 meals logged", require("../src/images/icons/home_icon.png")],
+      ["7-day keto diet", require("../src/images/icons/down.png")],
       [
-        "Weekly protein intake",
+        "Low-cholesterol diet",
         require("../src/images/icons/overview_icon.png"),
       ],
       ["test 123", require("../src/images/icons/profile_icon.png")],
@@ -19,12 +19,14 @@ export default class LockedCard extends React.Component {
     let cardSet = achievementArray.map((card) => {
       return (
         <Card style={styles.roundedCard}>
-          <CardItem>
-            <Image source={card[1]} />
+          <CardItem style={{ backgroundColor: "gray", alignSelf: "center" }}>
+            <Image style={{ width: 43, height: 43 }} source={card[1]} />
           </CardItem>
-          <CardItem>
+          <CardItem style={{ backgroundColor: "gray" }}>
             <Body>
-              <Text style={{ fontSize: 9, fontWeight: "bold" }}>{card[0]}</Text>
+              <Text style={{ fontSize: 9, textAlign: "center", fontSize: 10 }}>
+                {card[0]}
+              </Text>
             </Body>
           </CardItem>
         </Card>
