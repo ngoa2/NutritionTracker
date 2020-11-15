@@ -1,8 +1,9 @@
 # NutritionTracker
 
-Requires git, follow [this link](https://git-scm.com/downloads) to download
-Requires node, follow [this link](https://nodejs.org/en/download/) to download
+Requires git version 2.21.0, follow [this link](https://git-scm.com/downloads) to download
+Requires node v12.18.2, follow [this link](https://nodejs.org/en/download/) to download
 
+## Installation
 From the terminal, run
 
 ```
@@ -25,6 +26,9 @@ It should open up a browser and you'll see a QR code.
 Install the Expo app from the App Store.
 
 Scan the code with your camera app (ios) or expo app (android).
+
+
+## Troubleshooting
 
 If you see
 
@@ -52,21 +56,3 @@ Animated: `useNativeDriver` was not specified. This is a required option and mus
 open file: `</node_modules/react-native-deck-swiper/Swiper.js/>`
 
 add `<{useNativeDriver: true}>` to `<Animated.sring>` and `<Animated.event>`'s config prop (the second prop).
-
-Installed Libraries:
-
-Requires native-base, follow [this link](https://docs.nativebase.io/docs/GetStarted.html)
-
-npm install native-base --save
-
-react-native link
-
-Requires React Native Progress Circle, follow [this link](https://www.npmjs.com/package/react-native-progress-circle)
-
-npm install --save react-native-progress-circle
-
-Bottom Navigation Reference:
-https://callstack.github.io/react-native-paper/bottom-navigation.html
-
-Searchbar Reference:
-https://callstack.github.io/react-native-paper/searchbar.html
