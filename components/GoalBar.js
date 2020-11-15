@@ -14,7 +14,7 @@ export default class GoalBar extends React.Component {
             <Text style={{marginLeft: 2, fontSize: 12, fontWeight: "500", marginBottom: 10}}>{goalName}</Text>
             <View style={{flexDirection: "row" , width: "100%", alignItems:"center"}}>
                 <View>
-                    <Progress.Bar progress={percentage} width={278} height={18} borderRadius ={11} color={rgb(255, 162, 107)} unfilledColor={'white'} borderWidth={0}/>
+                    <Progress.Bar progress={percentage} width={278} height={18} borderRadius ={11} color= "#FFA26B"unfilledColor={'white'} borderWidth={0}/>
                 </View>
                 <Text style={{marginLeft: 20, fontSize: 20, fontWeight: "500", color: "#3F3F44"}}>{stringPer}</Text>
             </View>

@@ -18,7 +18,7 @@ export default class LockedCard extends React.Component {
 
     let cardSet = achievementArray.map((card) => {
       return (
-        <Card style={styles.roundedCard}>
+        <Card key = {card} style={styles.roundedCard}>
           <CardItem style={{ backgroundColor: "gray", alignSelf: "center" }}>
             <Image style={{ width: 43, height: 43 }} source={card[1]} />
           </CardItem>

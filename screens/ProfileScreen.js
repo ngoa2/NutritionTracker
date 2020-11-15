@@ -54,7 +54,7 @@ const ProfileScreen = () => {
 
             <ScrollView style={styles.scroll}>
               {profileGeneral.map((profile, index) => (
-                <TouchableOpacity activeOpacity={1} onPress={() => openModal(index)}>
+                <TouchableOpacity key = {index} activeOpacity={1} onPress={() => openModal(index)}>
                   <ProfileInformationCard general={profile} individual={profileIndividual[index]}/>
                 </TouchableOpacity>
               ))}
